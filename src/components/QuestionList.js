@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 
-function QuestionList() {
+const QuestionList = () => {
+  const [questions, setQuestions] = useState([]);
+
+  useEffect(() => {
+    // Fetch questions from the API and update state
+  }, []);
+
   return (
-    <section>
-      <h1>Quiz Questions</h1>
-      <ul>{/* display QuestionItem components here after fetching */}</ul>
-    </section>
+    <div>
+      <h2>All Questions</h2>
+      <ul>
+        {questions.map((question) => (
+          <li key={question.id}>
+            <p>{question.prompt}</p>
+            {/* Render other details of the question */}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
-}
+};
 
 export default QuestionList;
